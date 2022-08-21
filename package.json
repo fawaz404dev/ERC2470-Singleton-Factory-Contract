@@ -1,0 +1,52 @@
+{
+  "name": "erc2470",
+  "version": "0.0.1",
+  "description": "ERC2470 - Singleton Factory",
+  "main": "index.js",
+  "files": [
+    "artifacts",
+    "js",
+    "contracts"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint:sol": "npx solium --reporter pretty --dir contracts",
+    "build:sol": "solc --overwrite --optimize --optimize-runs 200 --metadata-literal --output-dir ./artifacts --combined-json abi,asm,bin,devdoc,hashes,interface,metadata,opcodes,srcmap,userdoc ./contracts/*.sol",
+    "build": "npm run clean && npm run build:sol",
+    "test": "npm run build && mocha --harmony",
+    "clean": "rm -rf artifacts",
+    "info": "node js/info.js",
+    "prepack": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fawaz404dev/ERC2470-Singleton-Factory-Contract.git"
+  },
+  "keywords": [
+    "solidity",
+    "ERC2470",
+    "smart",
+    "contract",
+    "ethereum"
+  ],
+  "author": "Fawaz Jomah",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/fawaz404dev/ERC2470-Singleton-Factory-Contract/issues"
+  },
+  "homepage": "https://eips.ethereum.org/EIPS/eip-2470",
+  "dependencies": {
+    "ethereumjs-tx": "1.3.7",
+    "ethereumjs-util": "6.1.0",
+    "web3": "1.0.0-beta.34"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "ethlint": "^1.2.3",
+    "ganache-cli": "6.3.0",
+    "mocha": "^5.2.0"
+  }
+}
